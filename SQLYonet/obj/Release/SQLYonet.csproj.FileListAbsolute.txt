@@ -1,0 +1,11 @@
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\bin\Release\SQLYonet.exe.config
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\bin\Release\SQLYonet.exe
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\bin\Release\SQLYonet.pdb
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Release\SQLYonet.csprojAssemblyReference.cache
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Release\SQLYonet.DilSeciciKontrol.resources
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Release\SQLYonet.f01_GirisEkrani.resources
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Release\SQLYonet.Properties.Resources.resources
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Release\SQLYonet.csproj.GenerateResource.cache
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Release\SQLYonet.csproj.CoreCompileInputs.cache
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Release\SQLYonet.exe
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Release\SQLYonet.pdb

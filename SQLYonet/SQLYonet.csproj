@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B1AEA77-22D4-4D38-97B8-8E22BE22B5B9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SQLYonet</RootNamespace>
+    <AssemblyName>SQLYonet</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Google.Protobuf">
+      <HintPath>..\mysql-connector-net-8.0.15-noinstall\v4.5.2\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\mysql-connector-net-8.0.15-noinstall\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6">
+      <HintPath>..\mysql-connector-net-6.10.8-noinstall\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.EntityFramework">
+      <HintPath>..\mysql-connector-net-8.0.15-noinstall\v4.5.2\MySql.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQL.Data.EntityFrameworkCore">
+      <HintPath>..\mysql-connector-net-8.0.15-noinstall\v4.5.2\MySQL.Data.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="MySQL.Data.EntityFrameworkCore.Design">
+      <HintPath>..\mysql-connector-net-8.0.15-noinstall\v4.5.2\MySQL.Data.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web">
+      <HintPath>..\mysql-connector-net-8.0.15-noinstall\v4.5.2\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DilSeciciKontrol.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DilSeciciKontrol.Designer.cs">
+      <DependentUpon>DilSeciciKontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f01_GirisEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f01_GirisEkrani.Designer.cs">
+      <DependentUpon>f01_GirisEkrani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f02_Sunucular.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f02_Sunucular.Designer.cs">
+      <DependentUpon>f02_Sunucular.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f03_MySQLYonet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f03_MySQLYonet.Designer.cs">
+      <DependentUpon>f03_MySQLYonet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f04_f03_VeriTabaniOlustur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f04_f03_VeriTabaniOlustur.Designer.cs">
+      <DependentUpon>f04_f03_VeriTabaniOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="f05_TabloKopyala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="f05_TabloKopyala.Designer.cs">
+      <DependentUpon>f05_TabloKopyala.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MySQLYonet.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestFormu.Designer.cs">
+      <DependentUpon>TestFormu.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DilSeciciKontrol.resx">
+      <DependentUpon>DilSeciciKontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f01_GirisEkrani.resx">
+      <DependentUpon>f01_GirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f02_Sunucular.resx">
+      <DependentUpon>f02_Sunucular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f03_MySQLYonet.resx">
+      <DependentUpon>f03_MySQLYonet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f04_f03_VeriTabaniOlustur.resx">
+      <DependentUpon>f04_f03_VeriTabaniOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="f05_TabloKopyala.resx">
+      <DependentUpon>f05_TabloKopyala.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="TestFormu.resx">
+      <DependentUpon>TestFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\en_icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tr_icon.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aktifButonBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db_ekle24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db_sil24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db_root24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saydam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading16px.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db_table24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db_function24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db_view24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formbg_1024px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dbsil_2_24px.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
