@@ -55,6 +55,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TabloYapisi_DGV = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.Btn_IstekTabloKaydet = new System.Windows.Forms.Button();
             this.IstekYaz_RTBox = new System.Windows.Forms.RichTextBox();
             this.IstekCalistir_Btn = new System.Windows.Forms.Button();
             this.Istek_DGV = new System.Windows.Forms.DataGridView();
@@ -68,7 +69,9 @@
             this.TabloTVKopyala_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.TabloTVYokEt_TSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.TabloTVBosalt_TSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.Btn_IstekTabloKaydet = new System.Windows.Forms.Button();
+            this.LVw_IstekSonuc = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dilSeciciKontrol1 = new SQLYonet.DilSeciciKontrol();
             this.Islemler_TabCtrl.SuspendLayout();
             this.TabloDuzenle_TPg.SuspendLayout();
@@ -362,6 +365,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.LVw_IstekSonuc);
             this.tabPage3.Controls.Add(this.Btn_IstekTabloKaydet);
             this.tabPage3.Controls.Add(this.IstekYaz_RTBox);
             this.tabPage3.Controls.Add(this.IstekCalistir_Btn);
@@ -373,6 +377,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // Btn_IstekTabloKaydet
+            // 
+            this.Btn_IstekTabloKaydet.Location = new System.Drawing.Point(599, 123);
+            this.Btn_IstekTabloKaydet.Name = "Btn_IstekTabloKaydet";
+            this.Btn_IstekTabloKaydet.Size = new System.Drawing.Size(75, 23);
+            this.Btn_IstekTabloKaydet.TabIndex = 5;
+            this.Btn_IstekTabloKaydet.Text = "IstekTabloKaydet";
+            this.Btn_IstekTabloKaydet.UseVisualStyleBackColor = true;
+            this.Btn_IstekTabloKaydet.Click += new System.EventHandler(this.Btn_IstekTabloKaydet_Click);
             // 
             // IstekYaz_RTBox
             // 
@@ -493,15 +507,26 @@
             this.TabloTVBosalt_TSMI.Size = new System.Drawing.Size(161, 22);
             this.TabloTVBosalt_TSMI.Text = "Tabloyu Boşalt";
             // 
-            // Btn_IstekTabloKaydet
+            // LVw_IstekSonuc
             // 
-            this.Btn_IstekTabloKaydet.Location = new System.Drawing.Point(599, 123);
-            this.Btn_IstekTabloKaydet.Name = "Btn_IstekTabloKaydet";
-            this.Btn_IstekTabloKaydet.Size = new System.Drawing.Size(75, 23);
-            this.Btn_IstekTabloKaydet.TabIndex = 5;
-            this.Btn_IstekTabloKaydet.Text = "IstekTabloKaydet";
-            this.Btn_IstekTabloKaydet.UseVisualStyleBackColor = true;
-            this.Btn_IstekTabloKaydet.Click += new System.EventHandler(this.Btn_IstekTabloKaydet_Click);
+            this.LVw_IstekSonuc.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.LVw_IstekSonuc.Location = new System.Drawing.Point(4, 342);
+            this.LVw_IstekSonuc.Name = "LVw_IstekSonuc";
+            this.LVw_IstekSonuc.Size = new System.Drawing.Size(670, 80);
+            this.LVw_IstekSonuc.TabIndex = 6;
+            this.LVw_IstekSonuc.UseCompatibleStateImageBehavior = false;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Tag = "Saat";
+            this.columnHeader1.Text = "Saat";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Tag = "Aciklama";
+            this.columnHeader2.Text = "Açıklama";
             // 
             // dilSeciciKontrol1
             // 
@@ -587,5 +612,8 @@
         private System.Windows.Forms.DataGridView Istek_DGV;
         private System.Windows.Forms.RichTextBox IstekYaz_RTBox;
         private System.Windows.Forms.Button Btn_IstekTabloKaydet;
+        private System.Windows.Forms.ListView LVw_IstekSonuc;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
