@@ -260,8 +260,6 @@ namespace SQLYonet
             TabloTVBosalt_TSMI.Text = DilSec.Tablo + " " + DilSec.Bosalt;
 
 
-            //Istek Sekmesi
-            IstekCalistir_Btn.Text = DilSec.Calistir;
 
             
 
@@ -1262,30 +1260,31 @@ namespace SQLYonet
 
         private void IstekCalistir_Btn_Click(object sender, EventArgs e)
         {
-            string Istek = IstekYaz_RTBox.Text;
+            /*
+            // string Istek = IstekYaz_RTBox.Text;
 
             HataYeri = 0;
             try
             {
                 if(mySQLYonet.BaglantiAc(DBHost,DBUser,DBPass,DBName))
                 {
-                    DataTable dt = mySQLYonet.IstekCalistir(Istek);
+                    // DataTable dt = mySQLYonet.IstekCalistir(Istek);
                     IstekTabloDT = new DataTable();
                     IstekTabloDT = dt;
                     //[ Güncellemede kullanmak üzere Table ve BindingSource saklayalım
                     IstekTabloBS = new BindingSource();
                     IstekTabloBS.DataSource = dt;
                     // Güncellemede kullanmak üzere Table ve BindingSource saklayalım ]
-                    Istek_DGV.DataSource = IstekTabloBS;
+                 //   Istek_DGV.DataSource = IstekTabloBS;
                     mySQLYonet.BaglantiKapat();
                 }
-                OrtakSinif.RTBox_Renklendir(RenklenecekKomutlar, IstekYaz_RTBox);
+               // OrtakSinif.RTBox_Renklendir(RenklenecekKomutlar, IstekYaz_RTBox);
             }
             catch(Exception Istisna)
             {
                 OrtakSinif.HataBildir(Istisna.ToString(), Istisna);
             }
-
+            */
         }
 
         private void Btn_IstekTabloKaydet_Click(object sender, EventArgs e)
@@ -1331,6 +1330,12 @@ namespace SQLYonet
                         break;
                 }
             }
+        }
+
+        private void f06_FormAc_Click(object sender, EventArgs e)
+        {
+            Form Yeniform = new f06_MySQLKomutCalistir();
+            Yeniform.Show();
         }
     }//Form Sonu
 

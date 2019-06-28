@@ -249,6 +249,7 @@ namespace SQLYonet
         public static string YokEt;
         public static string Bosalt;
         public static string Calistir;
+        public static string Komut;
         public static void tr()
         {
             aktifdil = "tr";
@@ -462,6 +463,8 @@ namespace SQLYonet
             YokEt = "Yok Et";
             Bosalt = "Boşalt";
             Calistir = "Çalıştır";
+            Komut = "Komut";
+            
     }
         public static void en()
         {
@@ -676,6 +679,7 @@ namespace SQLYonet
             YokEt = "Destroy";
             Bosalt = "Erase";
             Calistir = "Run";
+            Komut = "Command";
         }
     }
 }
