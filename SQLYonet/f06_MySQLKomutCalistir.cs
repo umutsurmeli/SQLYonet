@@ -18,7 +18,7 @@ namespace SQLYonet
         public string DBUser;
         public string DBPass;
         public string DBName; // Sonradan tıklamayla seçilecek.
-        public string TabloListelenen;
+        //public string TabloListelenen;
         // ]
         bool TabloDuzenleAcKapaDurum = true;
         MySQLYonet mySQLYonet = new MySQLYonet();
@@ -33,10 +33,7 @@ namespace SQLYonet
         public f06_MySQLKomutCalistir()
         {
             InitializeComponent();
-            Btn_Genislet.BackColor = Color.Silver;
-            dilSeciciKontrol1.button1.Click += FormTextleriDegistir;
-            dilSeciciKontrol1.button2.Click += FormTextleriDegistir;
-            RenklenecekKomutlar = mySQLYonet.IstekKomutlar();
+
         }
         public void FormTextleriDegistir(object sender, EventArgs e)
         {
@@ -48,11 +45,88 @@ namespace SQLYonet
             FormAdi = "MySQL "+DilSec.Komut + " -" + DilSec.ProgramBaslik;
             this.Text = FormAdi;
             Lbl_DBNAME.Text = DilSec.VeriTabani;
+            TabloKaydetIptal_Btn.Text = DilSec.iptal;
+            TabloyuKaydet_Btn.Text = DilSec.kaydet;
 
+        }
+
+
+        public void f06_MySQLKomutCalistir_Load(object sender, EventArgs e)
+        {
+            SunucuAdi_Lbl.Text = BaglantiAdi;
+            FormTextleriDegistir(sender, e);
+            Btn_Genislet.BackColor = Color.Silver;
+            dilSeciciKontrol1.button1.Click += FormTextleriDegistir;
+            dilSeciciKontrol1.button2.Click += FormTextleriDegistir;
+            cikisButon1.CikiButonButtonClicked += Cikis;
+            RenklenecekKomutlar = mySQLYonet.IstekKomutlar();
+            CBox_VeriTabanlariniDoldur();
+            
+        }
+        public void Cikis(object sender, EventArgs e)
+        {
+            OrtakSinif.Cikis(DilSec.CikmakMi, DilSec.cikis);
+        }
+        private void CBox_VeriTabanlariniDoldur()
+        {
+            mySQLYonet.BaglantiAc(DBHost, DBUser, DBPass, "");
+            List<string> VeriTabanlari = mySQLYonet.VeriTabanlari();
+            CBox_DBNAME.Items.Clear();
+            int i = 0;
+            int CBoxVTIndex = -1;
+            foreach(string VTAdi in VeriTabanlari)
+            {
+                
+                CBox_DBNAME.Items.Add(VTAdi);
+                if(VTAdi == DBName) { CBoxVTIndex = i; }
+                i++;
+            }
+            CBox_DBNAME.SelectedIndex = CBoxVTIndex;
+            
+            mySQLYonet.BaglantiKapat();
+        }
+
+
+        private void TabloDuzenleAcKapa()
+        {
+            HataYeri = 0;
+            try
+            {
+                TabloyuKaydet_Btn.Enabled = TabloDuzenleAcKapaDurum;
+                TabloKaydetIptal_Btn.Enabled = TabloDuzenleAcKapaDurum;
+                if (TabloDuzenleAcKapaDurum == true)
+                {
+                    TabloyuKaydet_Btn.BackgroundImage = Properties.Resources.aktifButonBG;
+                    TabloKaydetIptal_Btn.BackgroundImage = Properties.Resources.aktifButonBG;
+                }
+                else
+                {
+                    TabloyuKaydet_Btn.BackgroundImage = null;
+                    TabloKaydetIptal_Btn.BackgroundImage = null;
+                }
+                //TabloKayitlar_DGV.Enabled = TabloDuzenleAcKapaDurum;
+
+                List<Control> Haric = new List<Control>();
+                Haric.Add(TabloyuKaydet_Btn);
+                Haric.Add(TabloKaydetIptal_Btn);
+                Haric.Add(DGV_SQLSonuc);
+
+                //MessageBox.Show(Haric.Count.ToString());
+                OrtakSinif.KontrolleriAcKapat_Form("f06_MySQLKomutCalistir", Haric, !TabloDuzenleAcKapaDurum);
+
+
+
+            }
+            catch (Exception Istisna)
+            {
+                OrtakSinif.ProgramHatasi("f03_... TabloDuzenleAcKapa()", HataYeri, Istisna);
+            }
+
+            //TabloDuzenleAcKapaDurum = !TabloDuzenleAcKapaDurum;
         }
         private void Btn_Genislet_Click(object sender, EventArgs e)
         {
-            if(Btn_Genislet.BackColor != Color.Silver)
+            if (Btn_Genislet.BackColor != Color.Silver)
             {
                 RTBox_SQLYaz.Width = this.Width - 50;
                 DGV_SQLSonuc.Width = this.Width - 50;
@@ -68,10 +142,11 @@ namespace SQLYonet
             }
 
         }
-
-        private void f06_MySQLKomutCalistir_Load(object sender, EventArgs e)
+        private void CBox_DBNAME_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FormTextleriDegistir(sender, e);
+            DBName = CBox_DBNAME.SelectedItem.ToString();
+            //MessageBox.Show(DBName);
         }
+
     }
 }

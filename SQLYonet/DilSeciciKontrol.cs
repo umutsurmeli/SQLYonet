@@ -26,11 +26,12 @@ namespace SQLYonet
         {
             DilSec.en();
         }
+        
         void DilGuncellemeCalistir( MethodInvoker FormTextleriDegistir)
         {
             FormTextleriDegistir();
         }
-
+        
     }
 
     static class DilSec
@@ -67,6 +68,7 @@ namespace SQLYonet
         public static string silmeonay_caption;
         public static string klasor_;
         public static string cikis;
+        public static string CikmakMi;
         public static string klasorundesin;
         public static string klasoru;
         public static string klasor_sec;
@@ -280,6 +282,7 @@ namespace SQLYonet
             silmeonay_caption = "Silme Onay!";
             klasor_ = "Klasör:";
             cikis = "Çıkış";
+            CikmakMi = "Çıkmak istediğinize emin misiniz?";
             klasorundesin = "klasöründesiniz";
             klasoru = "klasörü";
             klasor_sec = "bir klasör seçiniz";
@@ -496,6 +499,7 @@ namespace SQLYonet
             silmeonay_caption = "Delete Confirmation!";
             klasor_ = "Directory:";
             cikis = "Log Out";
+            CikmakMi = "Do you want to leave?";
             klasorundesin = "";
             klasoru = "directory";
             klasor_sec = "please choose directory";

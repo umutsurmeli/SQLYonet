@@ -66,6 +66,7 @@
             this.Islemler_TabCtrl = new System.Windows.Forms.TabControl();
             this.dilSeciciKontrol1 = new SQLYonet.DilSeciciKontrol();
             this.f06_FormAc = new System.Windows.Forms.Button();
+            this.cikisButon1 = new SQLYonet.CikisButon();
             ((System.ComponentModel.ISupportInitialize)(this.SunucuAdi_PBox)).BeginInit();
             this.TabloTV_CxMS.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -447,9 +448,9 @@
             // 
             // dilSeciciKontrol1
             // 
-            this.dilSeciciKontrol1.Location = new System.Drawing.Point(1041, 2);
+            this.dilSeciciKontrol1.Location = new System.Drawing.Point(1007, 2);
             this.dilSeciciKontrol1.Name = "dilSeciciKontrol1";
-            this.dilSeciciKontrol1.Size = new System.Drawing.Size(96, 26);
+            this.dilSeciciKontrol1.Size = new System.Drawing.Size(83, 26);
             this.dilSeciciKontrol1.TabIndex = 6;
             // 
             // f06_FormAc
@@ -462,12 +463,20 @@
             this.f06_FormAc.UseVisualStyleBackColor = true;
             this.f06_FormAc.Click += new System.EventHandler(this.f06_FormAc_Click);
             // 
+            // cikisButon1
+            // 
+            this.cikisButon1.Location = new System.Drawing.Point(1095, -2);
+            this.cikisButon1.Name = "cikisButon1";
+            this.cikisButon1.Size = new System.Drawing.Size(31, 30);
+            this.cikisButon1.TabIndex = 14;
+            // 
             // f03_MySQLYonet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1139, 506);
+            this.Controls.Add(this.cikisButon1);
             this.Controls.Add(this.f06_FormAc);
             this.Controls.Add(this.VeriTabaniSil_Btn);
             this.Controls.Add(this.YeniVeriTabani_Btn);
@@ -534,5 +543,6 @@
         private System.Windows.Forms.Label TabloDBName_Lbl;
         private System.Windows.Forms.TabControl Islemler_TabCtrl;
         private System.Windows.Forms.Button f06_FormAc;
+        private CikisButon cikisButon1;
     }
 }

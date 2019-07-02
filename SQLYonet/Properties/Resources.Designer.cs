@@ -173,6 +173,16 @@ namespace SQLYonet.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap formexit {
+            get {
+                object obj = ResourceManager.GetObject("formexit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap loading16px {
             get {
                 object obj = ResourceManager.GetObject("loading16px", resourceCulture);

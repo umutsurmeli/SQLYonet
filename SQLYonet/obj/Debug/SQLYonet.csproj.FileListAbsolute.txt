@@ -29,3 +29,4 @@ C:\Users\umuts\source\repos\SQLYonet\SQLYonet\bin\Debug\MySql.Data.Entity.EF6.xm
 C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Debug\SQLYonet.f04_f03_VeriTabaniOlustur.resources
 C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Debug\SQLYonet.f05_TabloKopyala.resources
 C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Debug\SQLYonet.f06_MySQLKomutCalistir.resources
+C:\Users\umuts\source\repos\SQLYonet\SQLYonet\obj\Debug\SQLYonet.CikisButon.resources

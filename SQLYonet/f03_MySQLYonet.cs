@@ -64,6 +64,11 @@ namespace SQLYonet
         public void f03_MySQLYonet_Load(object sender, EventArgs e)
         {
             FormAcilinca(sender,e);
+            cikisButon1.CikiButonButtonClicked += Cikis;
+        }
+        public void Cikis(object sender, EventArgs e)
+        {
+            OrtakSinif.Cikis(DilSec.CikmakMi, DilSec.cikis);
         }
         public void FormAcilinca(object sender, EventArgs e)
         {
@@ -1334,8 +1339,14 @@ namespace SQLYonet
 
         private void f06_FormAc_Click(object sender, EventArgs e)
         {
-            Form Yeniform = new f06_MySQLKomutCalistir();
-            Yeniform.Show();
+            f06_MySQLKomutCalistir YeniForm = new f06_MySQLKomutCalistir();
+            YeniForm.BaglantiAdi = BaglantiAdi;
+            YeniForm.DBHost = DBHost;
+            YeniForm.DBUser = DBUser;
+            YeniForm.DBPass = DBPass;
+            YeniForm.DBName = DBName;
+            
+            YeniForm.Show();
         }
     }//Form Sonu
 

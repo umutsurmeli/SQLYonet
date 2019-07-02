@@ -45,6 +45,7 @@ namespace SQLYonet
             //OrtakSinif.NesneNedir = Nesne.ToString();
             // Void "RETURN" içeremez işlem gerçekleştirir//return Nesne.ToString();
         }
+
         static public bool PanelAcKapa(object panelNesnesi)
         {
             //gereksiz 2019-02-17 02:00 // pane1.Visible = !panel1.Visible; aşağıdaki kodun işini görüyor.
@@ -164,6 +165,7 @@ namespace SQLYonet
                 ProgramHatasi("OrtakSinif.ButonAktif() Muhtemelen zemin resim dosyası eksik", HataYeri, Hata);
             }
         }
+        
         static public void KontrolleriAcKapat_TabPage(TabPage pencere,List<Control> HariCAdi,bool AcKapat)
         {
             byte HataYeri = 0;
@@ -199,6 +201,57 @@ namespace SQLYonet
             catch (Exception Istisna)
             {
                 ProgramHatasi("OrtakSinif.KontrolleriKapat()", HataYeri, Istisna);
+            }
+        }
+        static public void KontrolleriAcKapat_Form(string FormAdi, List<Control> HariCAdi, bool AcKapat)
+        {
+            byte HataYeri = 0;
+            try
+            {
+
+                // [ FormuBulalim
+                int AcikFormlarSayisi = Application.OpenForms.Count;
+                int FormIndexi = -1;
+                for (int i = 0; i < AcikFormlarSayisi; i++)
+                {
+                    if (Application.OpenForms[i].Name == FormAdi)
+                    {
+                        Application.OpenForms[i].Visible = true;
+                        FormIndexi = i;
+                    }
+                }
+                //  FormuBulalim ]
+
+                foreach (Control tumctrl in Application.OpenForms[FormIndexi].Controls)
+                {
+                    //b.BackgroundImage = null;
+                    HataYeri++;
+
+                    //Control HaricTut = Haric.Find(item => item.Name == form.Controls.name);
+                    bool HaricBulundu = false;
+                    foreach (Control HaricTut in HariCAdi)
+                    {
+                        if (tumctrl.Name == HaricTut.Name)
+                        {
+                            HaricBulundu = true;
+                        }
+                    }
+                    if (HaricBulundu == false)
+                    {
+                        tumctrl.Enabled = AcKapat;
+                        //MessageBox.Show(tumctrl.Name);
+                    }
+
+
+
+
+
+                }
+                HataYeri = 200;
+            }
+            catch (Exception Istisna)
+            {
+                ProgramHatasi("OrtakSinif.KontrolleriAcKapat_Form()", HataYeri, Istisna);
             }
         }
         static public bool TextBoxBosKontrol(Form form,List<TextBox> BosOlabilir)
@@ -374,6 +427,15 @@ namespace SQLYonet
             dialogResult = MessageBox.Show(Soru, Baslik, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             return dialogResult;
 
+        }
+        static public void Cikis(string Mesaj, string Baslik)
+        {
+            DialogResult Cevap;
+            Cevap = MessageBox.Show(Mesaj, Baslik, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Cevap == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
 
         public static string Base64Encode(string plainText)

@@ -72,6 +72,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CikisButon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CikisButon.Designer.cs">
+      <DependentUpon>CikisButon.cs</DependentUpon>
+    </Compile>
     <Compile Include="DilSeciciKontrol.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     <Compile Include="TestFormu.Designer.cs">
       <DependentUpon>TestFormu.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CikisButon.resx">
+      <DependentUpon>CikisButon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DilSeciciKontrol.resx">
       <DependentUpon>DilSeciciKontrol.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dbsil_2_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formexit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
