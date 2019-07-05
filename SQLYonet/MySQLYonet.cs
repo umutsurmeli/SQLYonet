@@ -858,7 +858,7 @@ namespace SQLYonet
         }
         public String[] IstekKomutlar()
         {
-            string[] dizi = new string[39];
+            string[] dizi = new string[44];
             dizi[0] = " and ";
             dizi[1] = " by ";
             dizi[2] = " in ";
@@ -868,36 +868,42 @@ namespace SQLYonet
             dizi[6] = "after ";
             dizi[7] = "alter";
             dizi[8] = "before ";
-            dizi[9] = "change";
-            dizi[10] = "column";
-            dizi[11] = "create";
-            dizi[12] = "database";
-            dizi[13] = "date ";
-            dizi[14] = "datetime ";
-            dizi[15] = "delete";
-            dizi[16] = "drop";
-            dizi[17] = "foreign";
-            dizi[18] = "from";
-            dizi[19] = "function";
-            dizi[20] = "insert";
-            dizi[21] = "into";
-            dizi[22] = "key";
-            dizi[23] = "limit";
-            dizi[24] = "modifiy";
-            dizi[25] = "not ";
-            dizi[26] = "null ";
-            dizi[27] = "order";
-            dizi[28] = "primary";
-            dizi[29] = "procedure";
-            dizi[30] = "select";
-            dizi[31] = "table";
-            dizi[32] = "timestamp ";
-            dizi[33] = "unique";
-            dizi[34] = "update";
-            dizi[35] = "values";
-            dizi[36] = "version";
-            dizi[37] = "view";
-            dizi[38] = "where";
+            dizi[9] = "cast";
+            dizi[10] = "change";
+            dizi[11] = "column";
+            dizi[12] = "concat";
+            dizi[13] = "count";
+            dizi[14] = "create";
+            dizi[15] = "database";
+            dizi[16] = "date ";
+            dizi[17] = "datetime ";
+            dizi[18] = "delete";
+            dizi[19] = "drop";
+            dizi[20] = "foreign";
+            dizi[21] = "from";
+            dizi[22] = "function";
+            dizi[23] = "group";
+            dizi[24] = "inner";
+            dizi[25] = "insert";
+            dizi[26] = "into";
+            dizi[27] = "key";
+            dizi[28] = "limit";
+            dizi[29] = "modifiy";
+            dizi[30] = "not ";
+            dizi[31] = "null ";
+            dizi[32] = "order";
+            dizi[33] = "primary";
+            dizi[34] = "procedure";
+            dizi[35] = "select";
+            dizi[36] = "table";
+            dizi[37] = "timestamp ";
+            dizi[38] = "unique";
+            dizi[39] = "update";
+            dizi[40] = "values";
+            dizi[41] = "version";
+            dizi[42] = "view";
+            dizi[43] = "where";
+
 
 
             return dizi;

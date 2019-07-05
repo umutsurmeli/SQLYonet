@@ -41,8 +41,8 @@
             this.SunucuAdi_Lbl = new System.Windows.Forms.Label();
             this.TabloKaydetIptal_Btn = new System.Windows.Forms.Button();
             this.TabloyuKaydet_Btn = new System.Windows.Forms.Button();
-            this.dilSeciciKontrol1 = new SQLYonet.DilSeciciKontrol();
             this.cikisButon1 = new SQLYonet.CikisButon();
+            this.dilSeciciKontrol1 = new SQLYonet.DilSeciciKontrol();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SQLSonuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SunucuAdi_PBox)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +64,7 @@
             this.Btn_SQLCalistir.TabIndex = 6;
             this.Btn_SQLCalistir.Text = "IstekCalistir";
             this.Btn_SQLCalistir.UseVisualStyleBackColor = true;
+            this.Btn_SQLCalistir.Click += new System.EventHandler(this.Btn_SQLCalistir_Click);
             // 
             // DGV_SQLSonuc
             // 
@@ -72,6 +73,10 @@
             this.DGV_SQLSonuc.Name = "DGV_SQLSonuc";
             this.DGV_SQLSonuc.Size = new System.Drawing.Size(520, 183);
             this.DGV_SQLSonuc.TabIndex = 7;
+            this.DGV_SQLSonuc.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.DGV_SQLSonuc_CellBeginEdit);
+            this.DGV_SQLSonuc.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_SQLSonuc_CellEndEdit);
+            this.DGV_SQLSonuc.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DGV_SQLSonuc_DataError);
+            this.DGV_SQLSonuc.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.DGV_SQLSonuc_RowsRemoved);
             // 
             // LVw_SQLLog
             // 
@@ -153,6 +158,7 @@
             this.TabloKaydetIptal_Btn.TabIndex = 20;
             this.TabloKaydetIptal_Btn.Text = "İptal";
             this.TabloKaydetIptal_Btn.UseVisualStyleBackColor = true;
+            this.TabloKaydetIptal_Btn.Click += new System.EventHandler(this.TabloKaydetIptal_Btn_Click);
             // 
             // TabloyuKaydet_Btn
             // 
@@ -163,13 +169,7 @@
             this.TabloyuKaydet_Btn.TabIndex = 19;
             this.TabloyuKaydet_Btn.Text = "Kaydet";
             this.TabloyuKaydet_Btn.UseVisualStyleBackColor = true;
-            // 
-            // dilSeciciKontrol1
-            // 
-            this.dilSeciciKontrol1.Location = new System.Drawing.Point(396, 3);
-            this.dilSeciciKontrol1.Name = "dilSeciciKontrol1";
-            this.dilSeciciKontrol1.Size = new System.Drawing.Size(92, 26);
-            this.dilSeciciKontrol1.TabIndex = 11;
+            this.TabloyuKaydet_Btn.Click += new System.EventHandler(this.TabloyuKaydet_Btn_Click);
             // 
             // cikisButon1
             // 
@@ -177,6 +177,13 @@
             this.cikisButon1.Name = "cikisButon1";
             this.cikisButon1.Size = new System.Drawing.Size(31, 30);
             this.cikisButon1.TabIndex = 21;
+            // 
+            // dilSeciciKontrol1
+            // 
+            this.dilSeciciKontrol1.Location = new System.Drawing.Point(396, 3);
+            this.dilSeciciKontrol1.Name = "dilSeciciKontrol1";
+            this.dilSeciciKontrol1.Size = new System.Drawing.Size(92, 26);
+            this.dilSeciciKontrol1.TabIndex = 11;
             // 
             // f06_MySQLKomutCalistir
             // 

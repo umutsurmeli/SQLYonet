@@ -159,7 +159,6 @@
             this.Yapilacaklar.TabIndex = 10;
             this.Yapilacaklar.Text = "Yapılacaklar";
             this.Yapilacaklar.UseVisualStyleBackColor = true;
-            this.Yapilacaklar.Visible = false;
             this.Yapilacaklar.Click += new System.EventHandler(this.Yapilacaklar_Click);
             // 
             // f01_GirisEkrani

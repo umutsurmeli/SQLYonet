@@ -34,7 +34,7 @@ namespace SQLYonet
 
         
         byte HataYeri;
-        string[] RenklenecekKomutlar;
+        
         string FormAdi;
         bool TabloKriteriniKullaniciTetikledi = false;
         // TabloKriteriniKullaniciTetikledi değişkeni Olayın kendi içinde tekrar etmesini engellemek için kullanılıyor.
@@ -48,7 +48,7 @@ namespace SQLYonet
             InitializeComponent();
             dilSeciciKontrol1.button1.Click += FormTextleriDegistir;
             dilSeciciKontrol1.button2.Click += FormTextleriDegistir;
-            RenklenecekKomutlar = mySQLYonet.IstekKomutlar();
+            
 
         }
 
@@ -640,30 +640,7 @@ namespace SQLYonet
 
             }
         }
-        /* Gerek kalmadı sorguda MySQL formatında string olarak alıyoruz.
-        private void DGVVeriTipiDuzenle(string TabloAdi)
-        {
-            
-            string[] TabloKolonTipleri = mySQLYonet.TabloKolonlar(TabloAdi, 1);
-            for (int i = 0; i < TabloKolonTipleri.Count(); i++)
-            {
-                if (TabloKolonTipleri[i].Contains("datetime"))
-                {
-                    TabloKayitlar_DGV.Columns[i].DefaultCellStyle.Format = "yyyy-MM-dd HH:mm:ss";
 
-                }
-                else if (TabloKolonTipleri[i].Contains("timestamp"))
-                {
-                    TabloKayitlar_DGV.Columns[i].DefaultCellStyle.Format = "yyyy-MM-dd HH:mm:ss";
-                }
-                else if (TabloKolonTipleri[i].Contains("date"))
-                {
-                    TabloKayitlar_DGV.Columns[i].DefaultCellStyle.Format = "yyyy-MM-dd";
-                }
-            }
-            
-            
-        }*/
         private DataGridView DGVKopyala(DataGridView Kopyalanacak)
         {
             //2019-02-26 Bu prosedür datagridviewle ilgili bir sorun sebebiple boş kopyalar oluşturmak amacıyla oluşturuldu.
@@ -1263,79 +1240,6 @@ namespace SQLYonet
             }
         }
 
-        private void IstekCalistir_Btn_Click(object sender, EventArgs e)
-        {
-            /*
-            // string Istek = IstekYaz_RTBox.Text;
-
-            HataYeri = 0;
-            try
-            {
-                if(mySQLYonet.BaglantiAc(DBHost,DBUser,DBPass,DBName))
-                {
-                    // DataTable dt = mySQLYonet.IstekCalistir(Istek);
-                    IstekTabloDT = new DataTable();
-                    IstekTabloDT = dt;
-                    //[ Güncellemede kullanmak üzere Table ve BindingSource saklayalım
-                    IstekTabloBS = new BindingSource();
-                    IstekTabloBS.DataSource = dt;
-                    // Güncellemede kullanmak üzere Table ve BindingSource saklayalım ]
-                 //   Istek_DGV.DataSource = IstekTabloBS;
-                    mySQLYonet.BaglantiKapat();
-                }
-               // OrtakSinif.RTBox_Renklendir(RenklenecekKomutlar, IstekYaz_RTBox);
-            }
-            catch(Exception Istisna)
-            {
-                OrtakSinif.HataBildir(Istisna.ToString(), Istisna);
-            }
-            */
-        }
-
-        private void Btn_IstekTabloKaydet_Click(object sender, EventArgs e)
-        {
-
-            HataYeri = 0;
-            try
-            {
-                HataYeri = 1;
-                mySQLYonet.BaglantiAc(DBHost, DBUser, DBPass, DBName);
-                HataYeri = 2;
-
-                IstekTabloBS.EndEdit();
-                HataYeri = 3;
-                DataTable dtdegisim = new DataTable();
-                HataYeri = 4;
-                dtdegisim = IstekTabloDT.GetChanges();
-
-
-                //[ Date, DateTime, TimeStamp veri uyuşmazlıklarını giderelim "0001-01-01" > "0000-00-00"
-
-                // Date, DateTime, TimeStamp veri uyuşmazlıklarını giderelim "0001-01-01" > "0000-00-00" ]
-                mySQLYonet.IstekTablosunuGuncelle(dtdegisim);// dtdegisim);
-                
-
-
-                mySQLYonet.BaglantiKapat();
-            }
-            catch (Exception Istisna)
-            {
-                switch (HataYeri)
-                {
-                    case 4:
-                        //Hiçbirşey yapma çünkü değişiklik yapılmadı.
-                        OrtakSinif.HataBildir(DilSec.HenuzDegistirilmedi, Istisna);
-                        TabloDuzenleAcKapaDurum = false;
-                        TabloDuzenleAcKapa();
-                        break;
-
-                    default:
-                        OrtakSinif.ProgramHatasi("f03_MySQLYonet.Btn_IstekTabloKaydet_Click()", HataYeri, Istisna);
-                        TabloyuYenile();
-                        break;
-                }
-            }
-        }
 
         private void f06_FormAc_Click(object sender, EventArgs e)
         {
