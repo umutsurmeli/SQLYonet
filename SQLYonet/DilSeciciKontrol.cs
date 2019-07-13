@@ -252,6 +252,9 @@ namespace SQLYonet
         public static string Bosalt;
         public static string Calistir;
         public static string Komut;
+        public static string Sorgu;
+        public static string Etkilenenler;
+
         public static void tr()
         {
             aktifdil = "tr";
@@ -467,9 +470,11 @@ namespace SQLYonet
             Bosalt = "Boşalt";
             Calistir = "Çalıştır";
             Komut = "Komut";
-            
+            Etkilenenler = "Etkilenenler";
+            Sorgu = "Sorgu";
+
     }
-        public static void en()
+    public static void en()
         {
             aktifdil = "en";
             yetkiniz_yok = "You do not have access";
@@ -684,6 +689,8 @@ namespace SQLYonet
             Bosalt = "Erase";
             Calistir = "Run";
             Komut = "Command";
-        }
+            Etkilenenler = "Affected";
+            Sorgu = "Query";
+       }
     }
 }

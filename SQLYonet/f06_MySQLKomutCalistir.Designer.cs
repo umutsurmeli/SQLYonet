@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.RTBox_SQLYaz = new System.Windows.Forms.RichTextBox();
             this.Btn_SQLCalistir = new System.Windows.Forms.Button();
             this.DGV_SQLSonuc = new System.Windows.Forms.DataGridView();
             this.LVw_SQLLog = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Btn_Genislet = new System.Windows.Forms.Button();
             this.CBox_DBNAME = new System.Windows.Forms.ComboBox();
             this.Lbl_DBNAME = new System.Windows.Forms.Label();
@@ -41,10 +40,14 @@
             this.SunucuAdi_Lbl = new System.Windows.Forms.Label();
             this.TabloKaydetIptal_Btn = new System.Windows.Forms.Button();
             this.TabloyuKaydet_Btn = new System.Windows.Forms.Button();
+            this.CMS_LVw_Log = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.TSMI_Kopyala = new System.Windows.Forms.ToolStripMenuItem();
             this.cikisButon1 = new SQLYonet.CikisButon();
             this.dilSeciciKontrol1 = new SQLYonet.DilSeciciKontrol();
+            this.TSMI_Yapistir = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SQLSonuc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SunucuAdi_PBox)).BeginInit();
+            this.CMS_LVw_Log.SuspendLayout();
             this.SuspendLayout();
             // 
             // RTBox_SQLYaz
@@ -80,24 +83,12 @@
             // 
             // LVw_SQLLog
             // 
-            this.LVw_SQLLog.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
             this.LVw_SQLLog.Location = new System.Drawing.Point(8, 421);
             this.LVw_SQLLog.Name = "LVw_SQLLog";
-            this.LVw_SQLLog.Size = new System.Drawing.Size(520, 80);
+            this.LVw_SQLLog.Size = new System.Drawing.Size(520, 179);
             this.LVw_SQLLog.TabIndex = 9;
             this.LVw_SQLLog.UseCompatibleStateImageBehavior = false;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Tag = "Saat";
-            this.columnHeader1.Text = "Saat";
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Tag = "Aciklama";
-            this.columnHeader2.Text = "Açıklama";
+            this.LVw_SQLLog.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LVw_SQLLog_MouseDown);
             // 
             // Btn_Genislet
             // 
@@ -171,6 +162,21 @@
             this.TabloyuKaydet_Btn.UseVisualStyleBackColor = true;
             this.TabloyuKaydet_Btn.Click += new System.EventHandler(this.TabloyuKaydet_Btn_Click);
             // 
+            // CMS_LVw_Log
+            // 
+            this.CMS_LVw_Log.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSMI_Kopyala,
+            this.TSMI_Yapistir});
+            this.CMS_LVw_Log.Name = "CMS_LVw_Log";
+            this.CMS_LVw_Log.Size = new System.Drawing.Size(181, 70);
+            // 
+            // TSMI_Kopyala
+            // 
+            this.TSMI_Kopyala.Name = "TSMI_Kopyala";
+            this.TSMI_Kopyala.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Kopyala.Text = "Kopyala";
+            this.TSMI_Kopyala.Click += new System.EventHandler(this.TSMI_Kopyala_Click);
+            // 
             // cikisButon1
             // 
             this.cikisButon1.Location = new System.Drawing.Point(490, 0);
@@ -185,12 +191,18 @@
             this.dilSeciciKontrol1.Size = new System.Drawing.Size(92, 26);
             this.dilSeciciKontrol1.TabIndex = 11;
             // 
+            // TSMI_Yapistir
+            // 
+            this.TSMI_Yapistir.Name = "TSMI_Yapistir";
+            this.TSMI_Yapistir.Size = new System.Drawing.Size(180, 22);
+            this.TSMI_Yapistir.Text = "Yapıştır";
+            // 
             // f06_MySQLKomutCalistir
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(534, 509);
+            this.ClientSize = new System.Drawing.Size(534, 602);
             this.Controls.Add(this.cikisButon1);
             this.Controls.Add(this.TabloKaydetIptal_Btn);
             this.Controls.Add(this.TabloyuKaydet_Btn);
@@ -211,6 +223,7 @@
             this.Load += new System.EventHandler(this.f06_MySQLKomutCalistir_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGV_SQLSonuc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SunucuAdi_PBox)).EndInit();
+            this.CMS_LVw_Log.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,8 +235,6 @@
         private System.Windows.Forms.Button Btn_SQLCalistir;
         private System.Windows.Forms.DataGridView DGV_SQLSonuc;
         private System.Windows.Forms.ListView LVw_SQLLog;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button Btn_Genislet;
         private DilSeciciKontrol dilSeciciKontrol1;
         private System.Windows.Forms.ComboBox CBox_DBNAME;
@@ -233,5 +244,8 @@
         private System.Windows.Forms.Button TabloKaydetIptal_Btn;
         private System.Windows.Forms.Button TabloyuKaydet_Btn;
         private CikisButon cikisButon1;
+        private System.Windows.Forms.ContextMenuStrip CMS_LVw_Log;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Kopyala;
+        private System.Windows.Forms.ToolStripMenuItem TSMI_Yapistir;
     }
 }

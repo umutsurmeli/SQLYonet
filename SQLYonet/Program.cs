@@ -45,7 +45,20 @@ namespace SQLYonet
             //OrtakSinif.NesneNedir = Nesne.ToString();
             // Void "RETURN" içeremez işlem gerçekleştirir//return Nesne.ToString();
         }
+        static public void LVw_Log_Kur(ListView listView,string[] Basliklar)
+        {
+            int SutunSayisi = Basliklar.Length;
+            listView.View = View.Details;
+            //listView.LabelEdit = true;
+            listView.FullRowSelect = true;
+            listView.GridLines = true;
+            for (int i=0;i<SutunSayisi;i++)
+            {
+                listView.Columns.Add(new ColumnHeader());
+                listView.Columns[i].Text = Basliklar[i];
+            }
 
+        }
         static public bool PanelAcKapa(object panelNesnesi)
         {
             //gereksiz 2019-02-17 02:00 // pane1.Visible = !panel1.Visible; aşağıdaki kodun işini görüyor.

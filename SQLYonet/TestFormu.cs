@@ -16,8 +16,12 @@ namespace SQLYonet
         public TestFormu()
         {
             InitializeComponent();
+            cikisButon1.CikiButonButtonClicked += Cikis;
         }
-
+        public void Cikis(object sender, EventArgs e)
+        {
+            OrtakSinif.Cikis(DilSec.CikmakMi, DilSec.cikis);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             string Sifrelendi = OrtakSinif.Sifrele(textBox1.Text);
@@ -107,7 +111,26 @@ namespace SQLYonet
             }
             OrtakSinif.RTBox_Renklendir(komutlar, richTextBox1);
         }
+        void ListViewTest()
+        {
+            ListViewItem listViewItem = new ListViewItem();
+            // Set the initial sorting type for the ListView.
+            listView1.Sorting = SortOrder.None;
+            // Disable automatic sorting to enable manual sorting.
+            listView1.View = View.Details;
+            listView1.Columns.Add(new ColumnHeader());
+            listView1.Columns[0].Text = "Başlık 1";
+            listView1.Columns[0].Width = 100;
+            listView1.Columns.Add(new ColumnHeader());
+            listView1.Columns[1].Text = "Başlık 222222222222222";
+            //listView1.Columns[1].Width = 100;
 
+        }
 
+        private void TestFormu_Load(object sender, EventArgs e)
+        {
+            ListViewTest();
+
+        }
     }
 }

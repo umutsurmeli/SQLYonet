@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace SQLYonet
 {
     public partial class f06_MySQLKomutCalistir : Form
@@ -35,6 +37,7 @@ namespace SQLYonet
         public f06_MySQLKomutCalistir()
         {
             InitializeComponent();
+            this.SuspendLayout();
 
         }
         public void FormTextleriDegistir(object sender, EventArgs e)
@@ -46,15 +49,20 @@ namespace SQLYonet
 
             FormAdi = "MySQL "+DilSec.Komut + " -" + DilSec.ProgramBaslik;
             this.Text = FormAdi;
+
+            TSMI_Kopyala.Text = DilSec.Kopyala;
+            //TSMI_Yapistir.Text = DilSec.Yapistir;
             Lbl_DBNAME.Text = DilSec.VeriTabani;
             TabloKaydetIptal_Btn.Text = DilSec.iptal;
             TabloyuKaydet_Btn.Text = DilSec.kaydet;
+            LVw_SQLLog.Columns[1].Text = DilSec.Sorgu;
 
         }
 
 
         public void f06_MySQLKomutCalistir_Load(object sender, EventArgs e)
         {
+            LVw_Log_Kur();
             SunucuAdi_Lbl.Text = BaglantiAdi;
             FormTextleriDegistir(sender, e);
             Btn_Genislet.BackColor = Color.Silver;
@@ -63,12 +71,33 @@ namespace SQLYonet
             cikisButon1.CikiButonButtonClicked += Cikis;
             RenklenecekKomutlar = mySQLYonet.IstekKomutlar();
             CBox_VeriTabanlariniDoldur();
+            TSMI_Yapistir.Enabled = false;
             //TabloDuzenleAcKapa();
             
         }
         public void Cikis(object sender, EventArgs e)
         {
+            
             OrtakSinif.Cikis(DilSec.CikmakMi, DilSec.cikis);
+            
+        }
+        void LVw_Log_Kur()
+        {
+            this.SuspendLayout();
+            string[] Sutunlar = new String[2];
+            Sutunlar[0] = "";
+            Sutunlar[1] = DilSec.Sorgu;
+            OrtakSinif.LVw_Log_Kur(LVw_SQLLog,Sutunlar);
+            LVw_SQLLog.Columns[0].Width = 100;
+            LVw_SQLLog.Columns[1].Width = LVw_SQLLog.Width - (LVw_SQLLog.Columns[0].Width + 5);
+            this.ResumeLayout();
+        }
+        void LVw_Log_Ekle()
+        {
+            string Saat = DateTime.Now.ToShortTimeString();
+            string Log = RTBox_SQLYaz.Text;
+            ListViewItem listViewItem = new ListViewItem(new string[] { Saat, Log });
+            LVw_SQLLog.Items.Insert(0, listViewItem);
         }
         private void CBox_VeriTabanlariniDoldur()
         {
@@ -194,6 +223,7 @@ namespace SQLYonet
                     TabloDuzenleAcKapa();
                     mySQLYonet.BaglantiKapat();
                 }
+                RTBox_SQLYaz.Focus();
 
             }
             catch (Exception Istisna)
@@ -227,7 +257,7 @@ namespace SQLYonet
 
         private void Btn_SQLCalistir_Click(object sender, EventArgs e)
         {
-            
+            LVw_Log_Ekle();
             string Istek = RTBox_SQLYaz.Text;
             RTBox_SQLYaz.Clear();
             RTBox_SQLYaz.Text = Istek;
@@ -245,11 +275,23 @@ namespace SQLYonet
                     IstekTabloBS.DataSource = IstekTabloDT;
                     // Güncellemede kullanmak üzere Table ve BindingSource saklayalım ]
                     DGV_SQLSonuc.DataSource = IstekTabloBS;
+
+
+                    DataTable Etkilenenler = new DataTable();
+                    string Saat = DateTime.Now.ToShortTimeString();
+                    
+                    Etkilenenler = mySQLYonet.YanSorgu("SELECT ROW_COUNT() AS Etkilenenler;");
+                    DataRow dr = Etkilenenler.Rows[0];
+                    string Log = DilSec.Etkilenenler+" "+dr[0].ToString();
+                    ListViewItem LVwItemEtkilenenler = new ListViewItem(new string[] { Saat, Log });
+                    LVw_SQLLog.Items.Insert(1, LVwItemEtkilenenler);
+
                     mySQLYonet.BaglantiKapat();
                 }
                OrtakSinif.RTBox_Renklendir(RenklenecekKomutlar, RTBox_SQLYaz);
                 TabloDuzenleAcKapaDurum = false;
                 TabloDuzenleAcKapa();
+                RTBox_SQLYaz.Focus();
             }
             catch(Exception Istisna)
             {
@@ -277,6 +319,7 @@ namespace SQLYonet
                 TabloDuzenleAcKapaDurum = false;
                 TabloDuzenleAcKapa();
                 TabloyuYenile();
+
             }
             catch (Exception Istisna)
             {
@@ -302,6 +345,7 @@ namespace SQLYonet
             TabloDuzenleAcKapaDurum = false;
             TabloDuzenleAcKapa();
             TabloyuYenile();
+
         }
 
         private void DGV_SQLSonuc_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -335,6 +379,28 @@ namespace SQLYonet
         {
             TabloDuzenleAcKapaDurum = true;
             TabloDuzenleAcKapa();
+        }
+
+        private void LVw_SQLLog_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Right) { return; }
+                ListViewItem MouseIleSecilen = LVw_SQLLog.GetItemAt(e.X, e.Y);
+            CMS_LVw_Log.Show(LVw_SQLLog, new Point(e.X, e.Y));
+        }
+
+        private void TSMI_Kopyala_Click(object sender, EventArgs e)
+        {
+            
+            if (LVw_SQLLog.Items.Count > 0 && LVw_SQLLog.SelectedItems.Count > 0)
+            {
+                string Log = LVw_SQLLog.SelectedItems[0].SubItems[1].Text;
+                Clipboard.SetText(Log);
+            }
+            else
+            {
+               // MessageBox.Show()
+            }
+
         }
     }
 }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Düğüm2");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Düğüm1");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Düğüm2");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Düğüm0", new System.Windows.Forms.TreeNode[] {
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Düğüm1");
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -46,6 +46,7 @@
             this.RTBox_Komutlar = new System.Windows.Forms.RichTextBox();
             this.Btn_RenkliKomutlar = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.cikisButon1 = new SQLYonet.CikisButon();
             this.SuspendLayout();
             // 
             // button1
@@ -126,15 +127,15 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(784, 37);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Düğüm2";
-            treeNode1.Text = "Düğüm2";
-            treeNode2.Name = "Düğüm0";
-            treeNode2.Text = "Düğüm0";
-            treeNode3.Name = "Düğüm1";
-            treeNode3.Text = "Düğüm1";
+            treeNode4.Name = "Düğüm2";
+            treeNode4.Text = "Düğüm2";
+            treeNode5.Name = "Düğüm0";
+            treeNode5.Text = "Düğüm0";
+            treeNode6.Name = "Düğüm1";
+            treeNode6.Text = "Düğüm1";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode3});
+            treeNode5,
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(121, 97);
             this.treeView1.TabIndex = 9;
             // 
@@ -174,11 +175,19 @@
             this.richTextBox1.TabIndex = 13;
             this.richTextBox1.Text = "select * from kullaniciler\ndrop herneyse\nupdate asdf SET fasdf=\"\";\n";
             // 
+            // cikisButon1
+            // 
+            this.cikisButon1.Location = new System.Drawing.Point(1135, 2);
+            this.cikisButon1.Name = "cikisButon1";
+            this.cikisButon1.Size = new System.Drawing.Size(31, 30);
+            this.cikisButon1.TabIndex = 14;
+            // 
             // TestFormu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1207, 450);
+            this.Controls.Add(this.cikisButon1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.Btn_RenkliKomutlar);
             this.Controls.Add(this.RTBox_Komutlar);
@@ -196,6 +205,7 @@
             this.Name = "TestFormu";
             this.Text = "TestFormu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TestFormu_FormClosing);
+            this.Load += new System.EventHandler(this.TestFormu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +227,6 @@
         private System.Windows.Forms.RichTextBox RTBox_Komutlar;
         private System.Windows.Forms.Button Btn_RenkliKomutlar;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private CikisButon cikisButon1;
     }
 }

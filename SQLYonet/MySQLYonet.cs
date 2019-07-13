@@ -620,6 +620,34 @@ namespace SQLYonet
                 return Tablo;
             }
         }
+        public DataTable YanSorgu(string Istek)
+        { //RowCount için kullanıyoruz ve kaale almıyoruz yani "SonIstek" olarak almıyoruz
+            //Böylece DataGridView deki çalışmalarımızı engellemesinin önüne geçtik.
+            HataYeri = 0;
+            DataTable Tablo = new DataTable();
+            try
+            {
+
+                string sorgu = Istek;
+                //SonIstek = sorgu;
+                da = new MySqlDataAdapter(sorgu, baglan);
+                command = new MySqlCommand(sorgu);
+                Tablo.Clear();
+                da.Fill(Tablo);
+                return Tablo;
+            }
+            catch (MySqlException Istisna)
+            {
+                switch (HataYeri)
+                {
+
+                    default:
+                        OrtakSinif.ProgramHatasi("MySQLYonet.IstekCalistir() (" + Istisna.Number.ToString() + ")", HataYeri, Istisna);
+                        break;
+                }
+                return Tablo;
+            }
+        }
         public void TabloGuncelle(DataTable dtdegisim)
         {
             HataYeri = 0;
